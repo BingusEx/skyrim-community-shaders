@@ -46,6 +46,17 @@ public:
 	void ResetTerrainDepth();
 	void BlendPrepassDepths();
 	void ResetTerrainWorld();
+	
+	virtual void Reset() override;
+
+	virtual void LoadSettings(json& o_json) override;
+	virtual void SaveSettings(json& o_json) override;
+
+	virtual void RestoreDefaultSettings() override;
+
+	virtual void DrawSettings() override;
+
+	virtual void DataLoaded() override;
 
 	Texture2D* terrainDepthTexture = nullptr;
 

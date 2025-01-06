@@ -285,6 +285,28 @@ void TerrainBlending::ResetTerrainWorld()
 	stateUpdateFlags.set(RE::BSGraphics::ShaderFlags::DIRTY_DEPTH_MODE);
 }
 
+void TerrainBlending::LoadSettings(json& o_json) {
+	//settings = o_json;
+}
+
+void TerrainBlending::SaveSettings(json& o_json) {
+	//o_json = settings;
+}
+
+void TerrainBlending::RestoreDefaultSettings() {
+	//settings = {};
+}
+
+void TerrainBlending::Reset() {
+	//settings = {};
+}
+
+void TerrainBlending::DataLoaded() {
+	//settings = {};
+}
+
+void TerrainBlending::DrawSettings() {}
+
 void TerrainBlending::ClearShaderCache()
 {
 	if (terrainVertexShader) {

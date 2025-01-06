@@ -41,30 +41,29 @@ void Feature::Load(json& o_json)
 	ini.SetUnicode();
 	ini.LoadFile(ini_path.c_str());
 	if (auto value = ini.GetValue("Info", "Version")) {
-		REL::Version featureVersion(std::regex_replace(value, std::regex("-"), "."));
+		//REL::Version featureVersion(std::regex_replace(value, std::regex("-"), "."));
 
-		auto& minimalFeatureVersion = FeatureVersions::FEATURE_MINIMAL_VERSIONS.at(GetShortName());
+		//auto& minimalFeatureVersion = FeatureVersions::FEATURE_MINIMAL_VERSIONS.at(GetShortName());
 
-		bool oldFeature = featureVersion.compare(minimalFeatureVersion) == std::strong_ordering::less;
-		bool majorVersionMismatch = minimalFeatureVersion.major() < featureVersion.major();
+		//bool oldFeature = featureVersion.compare(minimalFeatureVersion) == std::strong_ordering::less;
+		//bool majorVersionMismatch = minimalFeatureVersion.major() < featureVersion.major();
 
-		if (!oldFeature && !majorVersionMismatch) {
+		//if (!oldFeature && !majorVersionMismatch) {
 			loaded = true;
 			logger::info("{} {} successfully loaded", ini_filename, value);
-		} else {
-			loaded = false;
+		//} else {
+		//	loaded = false;
 
-			std::string minimalVersionString = minimalFeatureVersion.string();
-			minimalVersionString = minimalVersionString.substr(0, minimalVersionString.size() - 2);
+		//	std::string minimalVersionString = minimalFeatureVersion.string();
+		//	minimalVersionString = minimalVersionString.substr(0, minimalVersionString.size() - 2);
 
-			if (majorVersionMismatch) {
-				failedLoadedMessage = std::format("{} {} requires a newer version of community shaders, the feature version should be {}", GetShortName(), value, minimalVersionString);
-			} else {
-				failedLoadedMessage = std::format("{} {} is an old feature version, required: {}", GetShortName(), value, minimalVersionString);
-			}
-			logger::warn("{}", failedLoadedMessage);
-		}
-
+		//	if (majorVersionMismatch) {
+		//		failedLoadedMessage = std::format("{} {} requires a newer version of community shaders, the feature version should be {}", GetShortName(), value, minimalVersionString);
+		//	} else {
+		//		failedLoadedMessage = std::format("{} {} is an old feature version, required: {}", GetShortName(), value, minimalVersionString);
+		//	}
+		//	logger::warn("{}", failedLoadedMessage);
+		//}
 		version = value;
 	} else {
 		loaded = false;

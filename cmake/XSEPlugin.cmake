@@ -60,7 +60,7 @@ if(CMAKE_GENERATOR MATCHES "Visual Studio")
 		"${PROJECT_NAME}"
 		PRIVATE
 		/MP
-		/W4
+		/W0
 		/WX
 		/permissive-
 		/Zc:alignedNew
