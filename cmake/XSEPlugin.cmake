@@ -54,13 +54,13 @@ if(CMAKE_GENERATOR MATCHES "Visual Studio")
 	target_compile_definitions(${PROJECT_NAME} PRIVATE "$<$<CONFIG:DEBUG>:DEBUG>")
 
 	set(SC_DEBUG_OPTS "/fp:strict;/ZI;/Od;/Gy")
-	set(SC_RELEASE_OPTS "/Zi;/fp:fast;/GL;/Gy-;/Gm-;/Gw;/sdl-;/GS-;/guard:cf-;/O2;/Ob2;/Oi;/Ot;/Oy;/fp:except-")
+	set(SC_RELEASE_OPTS "/arch:AVX2;/Zi;/fp:fast;/GL;/Gy-;/Gm-;/Gw;/sdl-;/GS-;/guard:cf-;/O2;/Ob3;/Oi;/Ot;/Oy;/fp:except-")
 
 	target_compile_options(
 		"${PROJECT_NAME}"
 		PRIVATE
 		/MP
-		/W4
+		/W0
 		/WX
 		/permissive-
 		/Zc:alignedNew
@@ -83,7 +83,7 @@ if(CMAKE_GENERATOR MATCHES "Visual Studio")
 		/Zc:trigraphs
 		/Zc:wchar_t
 		/wd4200 # nonstandard extension used : zero-sized array in struct/union
-		# /arch:AVX
+		/arch:AVX2
 	)
 
 	target_compile_options(${PROJECT_NAME} PUBLIC "$<$<CONFIG:DEBUG>:${SC_DEBUG_OPTS}>")

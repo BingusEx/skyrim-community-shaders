@@ -239,8 +239,8 @@ WetnessEffects::PerFrame WetnessEffects::GetCommonBufferData()
 				float wetness = std::min(1.0f, wetnessCurrentWeather + wetnessLastWeather);
 				float puddleWetness = std::min(1.0f, puddleCurrentWeather + puddleLastWeather);
 
-				data.Wetness = wetness;
-				data.PuddleWetness = puddleWetness;
+				data.Wetness = 1.1f;
+				data.PuddleWetness = 1.1f;
 			}
 		}
 	}
