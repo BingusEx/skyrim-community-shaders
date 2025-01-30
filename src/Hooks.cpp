@@ -746,9 +746,7 @@ namespace Hooks
 
 	void InstallD3DHooks()
 	{
-		 
 		logger::info("Hooking D3D11CreateDeviceAndSwapChain");
 		*(uintptr_t*)&ptrD3D11CreateDeviceAndSwapChain = SKSE::PatchIAT(hk_D3D11CreateDeviceAndSwapChainNoStreamline, "d3d11.dll", "D3D11CreateDeviceAndSwapChain");
-		
 	}
 }
